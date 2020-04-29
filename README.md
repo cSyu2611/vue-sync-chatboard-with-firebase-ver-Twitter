@@ -16,6 +16,9 @@
 - vue-router でアクセス制限がされているかの確認
   - ログインした状態で'''localhost:8080/'''にリダイレクトされるか=>[ログインページ](http://localhost:8080/signIn), [アカウント登録ページ](http://localhost:8080/signUp)
   - ログインしていない状態で'''localhost:8080/signIn'''にリダイレクトされるか=>[ホーム画面](http://localhost:8080/)
+  
+# 今後の予定
+* これをベースにチャット機能のプロトタイプを作成する
 
 ## Project setup
 

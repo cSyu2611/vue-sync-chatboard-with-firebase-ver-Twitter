@@ -1,0 +1,15 @@
+// firebaseで発行されるconfigをそのまま貼り付け
+var firebaseConfig = {
+  apiKey: "",
+  authDomain: "",
+  databaseURL: "",
+  projectId: "",
+  storageBucket: "",
+  messagingSenderId: "",
+  appId: "",
+  measurementId: ""
+}
+
+export default {
+    firebaseConfig
+}

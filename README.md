@@ -7,7 +7,7 @@
 # TODO
 
 - firebase
-  - 発行される firebaseConfig を[config/env.js]()に貼り付け（env_tmp.js をコピー＆リネーム）
+  - 発行される firebaseConfig を[config/env.js](https://github.com/cSyu2611/vue-authentication-with-firebase/blob/master/config/env_tmp.js)に貼り付け（env_tmp.js をコピー＆リネーム）
   - メール認証を有効にする
 
 # 動作確認

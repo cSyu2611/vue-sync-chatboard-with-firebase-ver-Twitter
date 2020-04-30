@@ -18,6 +18,7 @@
 - リダイレクトの確認は[こちらで](https://github.com/cSyu2611/vue-authentication-with-firebase)
 - あとは適当にコメント追加したり．画像 ↓
   ![サンプル](https://github.com/cSyu2611/vue-sync-chatboard-with-firebase/blob/master/src/assets/example.png)
+- （別にレベル高くない笑笑）
 
 # 今後の予定
 

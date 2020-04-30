@@ -1,18 +1,25 @@
 <template>
   <div class="home">
-    ホーム画面
-    <p>ようこそ、{{firebase.auth().currentUser.email}}さん</p>
-    <SignOut/>
+    <div class="header">
+      ようこそ、{{firebase.auth().currentUser.email}}さん
+      <SignOut class="logout"/>
+    </div>
+    <ChatBoard/>
+    <ChatForm/>
   </div>
 </template>
 
 <script>
 import firebase from 'firebase'
 import SignOut from '@/components/SignOut'
+import ChatBoard from '@/components/ChatBoard'
+import ChatForm from '@/components/Form'
 export default {
   name: 'Home',
   components: {
-    SignOut
+    SignOut,
+    ChatBoard,
+    ChatForm
   },
   data(){
     return {
@@ -23,3 +30,14 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.header{
+  width: 100%;
+  background-color:#3EBD98;
+}
+.logout{
+  margin-left: 85%;
+  color: lightblue;
+}
+</style>>

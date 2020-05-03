@@ -40,7 +40,6 @@
 
 <script>
   import {db} from '../plugins/firebase';
-  import firebase from 'firebase'
 
   export default {
     name: 'CreateForm',
@@ -63,7 +62,9 @@
         db.collection('comments').add({
           content: this.inputComment,
           createdAt: now,
-          user: firebase.auth().currentUser.email
+          uid: null,
+          name: this.$store.state.user_name,
+          image_url: this.$store.state.profile_image_url
         })
         // ダイアログを閉じる
         this.hideCreateForm()

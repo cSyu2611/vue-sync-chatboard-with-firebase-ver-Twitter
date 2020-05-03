@@ -1,9 +1,6 @@
 <template>
   <div class="home">
-    <div class="header">
-      ようこそ、{{firebase.auth().currentUser.email}}さん
-      <SignOut class="logout"/>
-    </div>
+    <Header/>
     <ChatBoard/>
     <ChatForm/>
   </div>
@@ -11,15 +8,25 @@
 
 <script>
 import firebase from 'firebase'
-import SignOut from '@/components/SignOut'
+import Header from '@/components/Header'
 import ChatBoard from '@/components/ChatBoard'
 import ChatForm from '@/components/Form'
 export default {
   name: 'Home',
   components: {
-    SignOut,
+    Header,
     ChatBoard,
     ChatForm
+  },
+  created(){
+    const obj = {
+      profile:{
+
+      }
+    };
+    obj.profile.name = firebase.auth().currentUser.providerData[0].displayName
+    obj.profile.profile_image_url = firebase.auth().currentUser.providerData[0].photoURL
+    this.$store.commit("setCredential", obj)
   },
   data(){
     return {

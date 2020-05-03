@@ -2,8 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import firebase from "firebase"
 import Home from '../views/Home.vue'
-import SignUp from '@/components/SignUp'
-import SignIn from '@/components/SignIn'
+import HomeNeedsLogin from '../views/HomeNeedsLogin.vue'
 
 Vue.use(VueRouter)
 
@@ -19,18 +18,7 @@ Vue.use(VueRouter)
   {
     path: '/signUp',
     name: 'SignUp',
-    component: SignUp,
-    meta: {
-      already: true
-    }
-  },
-  {
-    path: '/signIn',
-    name: 'SigniIn',
-    component: SignIn,
-    meta: {
-      already: true
-    }
+    component: HomeNeedsLogin,
   }
 ]
 
@@ -42,7 +30,6 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
-  const already = to.matched.some(record => record.meta.already)
   if (requiresAuth) {
     // このルートはログインされているかどうか認証が必要です。
     // もしされていないならば、ログインページにリダイレクトします。
@@ -51,21 +38,9 @@ router.beforeEach((to, from, next) => {
         next()
       } else {
         next({
-          path: '/signIn',
+          path: '/signUp',
           query: { redirect: to.fullPath }
         })
-      }
-    })
-  }
-  else if (already){
-    firebase.auth().onAuthStateChanged(function (user) {
-      if (user) {
-        next({
-          path: '/',
-          query: { redirect: to.fullPath }
-        })
-      } else {
-        next()
       }
     })
   }

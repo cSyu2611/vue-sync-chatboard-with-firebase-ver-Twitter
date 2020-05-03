@@ -1,28 +1,32 @@
-# vue-sync-chatboard-with-firebase
+# vue-sync-chatboard-with-firebase-ver-Twitter
 
 # 概要
 
-- BaaS の firebase を利用したログイン認証システム ＋ オンライン同期掲示板を Vue.js で実装．プロトタイプとして使用しようかな．
+- BaaS の firebase を利用したログイン認証システム ＋ オンライン同期掲示板を Vue.js で実装(Twitter 連携版)
 
 # TODO
 
-- firebase
-  - 発行される firebaseConfig を[config/env.js](https://github.com/cSyu2611/vue-authentication-with-firebase/blob/master/config/env_tmp.js)に貼り付け（env_tmp.js をコピー＆リネーム）
-  - メール認証を有効にする
-  - firebase の database 設定
-    - テーブルを用意（comments）
-    - カラムを用意（content：型 →string, createdAt：型 →timestamp, user：型 →string）
+1. firebase
 
-# 動作確認
+- 発行される firebaseConfig を[config/env.js](https://github.com/cSyu2611/vue-sync-chatboard-with-firebase-ver-Twitter/blob/master/config/env_tmp.js)に貼り付け（env_tmp.js をコピー＆リネーム）
+- firebase にデプロイ
+- Twitter 認証を有効にする(API キーとシークレットの登録）
+- Web サイト URL とコールバック URL をコピーしておく
 
-- リダイレクトの確認は[こちらで](https://github.com/cSyu2611/vue-authentication-with-firebase)
-- あとは適当にコメント追加したり．画像 ↓
-  ![サンプル](https://github.com/cSyu2611/vue-sync-chatboard-with-firebase/blob/master/src/assets/example.png)
-- （別にレベル高くない笑笑）
+2. Twitter App
+
+- Web サイト URL とコールバック URL を設定
+- Keys and Tokens から API キーとシークレットをコピーしておく
+
+* 1 の作業に 2 の情報が、2 の作業に 1 の情報が必要でめんどくさかった
+
+# サンプル
+
+- サンプルは[こちらから](https://vue-sync-chatboard-with-fb.web.app/)
 
 # 今後の予定
 
-- これをベースに個人チャット機能のプロトタイプを作成する
+- これをベースにオンライン掲示板のプロトタイプを作成する
 
 ## Project setup
 

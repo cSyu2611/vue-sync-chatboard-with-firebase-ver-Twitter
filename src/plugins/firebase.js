@@ -8,3 +8,4 @@ Vue.use(firestorePlugin)
 
 var firebaseApp = firebase.initializeApp(env_.firebaseConfig);
 export const db = firebaseApp.firestore();
+export const providerTwitter = new firebase.auth.TwitterAuthProvider();

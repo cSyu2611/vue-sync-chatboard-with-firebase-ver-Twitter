@@ -7,13 +7,15 @@
       <v-list-item
           :key="index"
       >
+        <v-list-item-avatar>
+            <v-img :src="comment.image_url"></v-img>
+          </v-list-item-avatar>
         <v-list-item-content>
           <!-- コメント本文、投稿者が自分なら「あなた：」から始める -->
-          <v-list-item-subtitle class="text--primary subheading"><div v-if="comment.user==firebase.auth().currentUser.email" class="my_text">あなた</div>：{{comment.content}}</v-list-item-subtitle>
+          <v-list-item-subtitle class="text--primary subheading"><div class="my_text">{{comment.name}}</div>{{comment.content}}</v-list-item-subtitle>
           <!-- 日付とユーザのメールアドレス -->
           <v-list-item-subtitle>
             {{comment.createdAt.toDate().toLocaleString()}}
-            ＜{{comment.user}}＞
           </v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
@@ -33,6 +35,11 @@
       comments: [],
       firebase: firebase
     }),
+    computed: {
+      sharedState: function(){
+        return this.$store.state
+      }
+    },
     firestore() {
       return {
         // firestoreのcommentsコレクションを参照
